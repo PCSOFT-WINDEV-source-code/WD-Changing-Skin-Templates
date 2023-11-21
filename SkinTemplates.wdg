@@ -1,0 +1,99 @@
+#To edit and compare internal_properties, use WINDEV integrated tools.
+#Internal properties refer to the properties of controls in windows, reports, etc.
+info :
+ name : SkinTemplates
+ major_version : 28
+ minor_version : 0
+ type : 7
+ description : ""
+ subtype : 0
+procedure_set :
+ identifier : 0x1a55eab600914102
+ internal_properties : CAAAAAgAAABGLu41kG7fjQV3iS4F72qmnKaNh5694reolNKIW0iw
+ code_elements :
+  internal_properties : CAAAAAgAAABPOo5wfzL5PtlmH9g6pVlcqG1md+uM4GM8B/k/aVja5R6ZseBzxTGWZbo12UeE8bWym5Rl91AKrNq9wTYnFyamg2lAMw==
+  type_code : 31
+  p_codes :
+   -
+     code : |1+
+      global
+      	gsDirDynamicSkinTemplates is string = SysDir(srAppData)+["\"]+ProjectInfo(piProjectName)+["\"]+csNameSkinTemplateDirectory
+     type : 720896
+  procedures :
+   -
+     name : DeleteExtractedSkinTpls
+     procedure_id : 1897680885421064450
+     type_code : 15
+     code : |1-
+      // Summary: Deletes the extracted directories
+      // Syntax:
+      //DeleteExtractedSkinTpls ()
+      //
+      // Parameters:
+      //	None
+      // Return value:
+      // 	None
+      Procédure private DeleteExtractedSkinTpls()
+      
+      // Local variables
+      sListDirectoryToDelete		is string
+      
+      if fDirExist(gsDirDynamicSkinTemplates) = false return
+      
+      // Search for the skin templates
+      sListDirectoryToDelete = fListDirectory(gsDirDynamicSkinTemplates,frNotRecursive)
+      
+      // Browse them one by one to delete them
+      for each string sDirectory of sListDirectoryToDelete SEPARATED BY CR
+      	fRemoveDir(sDirectory,frRecursive+frReadOnly)
+      end
+     type : 458752
+   -
+     name : ExtractSkinTemplate
+     internal_properties : CAAAAAgAAACwOCVpHFcRD17JZO7XWlOMa24dw9E9HQ1U5Ki014e+Z95utrb9lhw4JgQV2hJ/c8kooUfaPTlBfFvuSgSUBkpMd0vI3eRFCX1Ek/UBZ5/nTzg7VIQAOyQz89izA1hhheDKGSKSV2oyXa0giyT1Nxz96K60fZtc+6BVWsmJZr5CM26gwmJDoA14Zkv9y24qG/iEOVz5ACQSuKlABqxXQpzkZvqSzkZT
+     procedure_id : 1897680885421129986
+     type_code : 15
+     code : |1-
+      // Summary: Extracts a skin template from an archive
+      // Syntax:
+      //[ <Result> = ] ExtractSkinTemplate (<sPathSkinTplArchive> is string)
+      //
+      // Parameters:
+      //	sSkinArchivePath (string): Path of the archive
+      // Return value:
+      // 	string: Skin-template file
+      Procédure ExtractSkinTemplate(sPathSkinTplArchive is string)
+      
+      // Local variables
+      sSkinTemplateFileToUse		is string
+      
+      // Check the existence of the file
+      if fFileExist(sPathSkinTplArchive) = False then result ""
+      
+      // Delete the former extracted skin templates
+      DeleteExtractedSkinTpls()
+      
+      // Extract the skin template into the data directory
+      if zipOpen("StplZip",sPathSkinTplArchive) >0 then result ""
+      zipExtractAll("StplZip",CompleteDir(gsDirDynamicSkinTemplates),zipDirectory)
+      
+      // Close the archive
+      zipClose("StplZip")
+      
+      // Search for the .wdy file
+      sSkinTemplateFileToUse = fListFile(CompleteDir(gsDirDynamicSkinTemplates)+fExtractPath(sPathSkinTplArchive,fFileName)+"\*.wdy",frRecursive)
+      
+      // Return the name of the skin-template file
+      result sSkinTemplateFileToUse
+     type : 458752
+  procedure_templates : []
+  property_templates : []
+ code_parameters :
+  internal_properties : CAAAAAgAAACVGQgYbalU7DKC3oH4ItDrjtcTHXXV/EuH8q0IbhyQlw==
+  original_name : COL_Collection1
+resources :
+ string_res :
+  identifier : 0x1a1bc950000cafad
+  internal_properties : CAAAAAgAAACm76HWfKGWp33VjXInA4cRlqArlgTTA862QGt72W2ld5Y=
+custom_note :
+ internal_properties : CAAAAAgAAABtB9HWVzrXO2+4NDRVK0vmzaNKrCKqH1DBX30lMmGZ

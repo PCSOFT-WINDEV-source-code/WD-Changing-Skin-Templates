@@ -1,0 +1,272 @@
+#To edit and compare internal_properties, use WINDEV integrated tools.
+#Internal properties refer to the properties of controls in windows, reports, etc.
+info :
+ name : WIN_ChooseSkinTemplate
+ major_version : 28
+ minor_version : 0
+ type : 2
+ description : ""
+ subtype : 0
+window :
+ name : WIN_ChooseSkinTemplate
+ identifier : 0x2a55eab2072d31ff
+ internal_properties : CAAAAAgAAAAgV9OOa2G1n3kK8BbiuXTf258okksXSDFTSQSdlhEgWoSBY8ie3B5MqrCJESvgE0l9DFsnxy1TZsKKlwAoNeegTPWYM/Rohu+Z945TqZ8gZIG74oON2MscbtnOTXBCfuOWry3E3FmI3544ofqtuF3K1KHEcqyQzplHEWqrP8JO9qukr82IpgrvzEvp/PZ64WcsivyvyBo6LNpyNAm5mGTBXW/SrQQRWeRc9LOtZ9OiUwGKvhTndVAozNKakraQ6KqvkihumZ9LXOS9xrEdbtDPTrdVcbDQW3X1ez4d3L3AiHKhIrltfn2vWzSHktdUyBMFJ2CHcmeJ77kwH3eaWiRE1zje/WjGn+YsNEl8sL9UcE9EdXVo6wid1WRgr/0ZNCv92cgd+IgL0tFGt505re7xCqLbBhvfGbQokTmHGoDCkoF/glywos/LWRoaHRJSvrgJZQIdMdWg06sXT0jW632mCZoK20LxaRAQDm0IOylXksc8DMbZiOkz0vthp6i/VhjXxIMa0SM/kI/lxtSPcvydCr8amPj33Q2T6klw0cSYjEJT7Cq4PlktdzyGRo284DdwWVDiz1IWDks+cY9SWydq85u6TEsGiVLgX80BQnPhN3rBSuhnvIPFogPfIfBYkTV0cmkqQP1JlrVQslCDNo5ugBub7WUku9Psjp5Vu4ikCjqswbF0uutxixrkffwHT40DyJefWh+ZQtxIhAlaATb0tl3uXIyC5y7S29UdGJLwGUYQdHgowd+bHzw7viBJc0uquBEL6YxXEZ0HhYWRoUI93Fc4Htdl9V+Xo2MdZq08ZgMmLMmzP+2s3PZVJJsM
+ properties :
+  width : 538
+  height : 375
+  widthClient : 536
+  heightClient : 343
+ controls :
+  -
+    name : BTN_Validate
+    identifier : 0x2a55eab2072e31ff
+    internal_properties : CAAAAAgAAACm9nGQWPkWziJ4o5oFAKqwkaPKBu8wiM4IbnzRhl9LpBFJuj/Na4n4aLYD3P9HuSSr+T9AfT6XD8OgfZ1MNhGrwUk2FfgK0fF10bbqq1+cfHaWpIZ11Zq8tmKfntDtPOr3Bd4pTiwksNvp5Dgq1XQRYS9ROG/mRWtJ4Q1SMeQB00mqu1kljRbL3e+bI1ZaTIMWy1e8rZdAEcd7JB5dlsfb9CfJKKEGfxbx2JW0JilVfUxaQOvQsBXZZNbhlxYbLDBmjcOUnBsjx40LfFQwnBR820pmdkxvRlkr27wKA2rSlLqRlfnVMNjFsIKx93cMA6HWuPgCSD8sFIL93c+9N29S93V4uUtY3FKzTxzKPbpCB69iMmG9JymB8s7WY2ojoTif59WEXUHOk/Ljmu+bXWZHNZVKnbKGaoAM7k8I7gYFbw38vRSSFl5nVPvR9sbcK861WUlWXKbXD6FdDY2aS0MNr3eVrosrOBTnHRND10qHUn+XMfgZAC69spMZvhFeZt8Sfsf/kKSEVC/jG9hDa7bLKikxvoXm0QmIOeR99/1JWM1qWPHEe4dd+TXjvksvbpSpUNlOhuFTUUv8Zx+AuLmYtnoBLtOOQNSNec1SsSJp1zJdcJvxQoq2NiD/bSMZAWZF4DhlcskzFucd+8waY97Y0oDK24F0FObelJINABU07BOnKMXAmzxwsgbO+BYFEMcf3mqkGOuOneWqjacq9GPuuwXG/ZANAuNy+NeALmZKYXcyj45hi+Xcd/ShpDtCTLBFNOQaYIhuvqhidvADL/afPm8mxkyRZ1W7kfKwWWEXmqwgW+kgcxUjSc3btvDDvaWQ4LXixTSw+ib7RLEWNIA7QAgXlqHqbcxH1F8P+CHX/t/gwphXBd1AgVt3qLW5wMz7U+Aln5bN2y3uHRfKHPQ9lp5/fHZ3stiw1ktJAqFbvkyYrki7ETmseVy4KQWogp6Z2qoTsmXAkEb9Zv6tLZfECKxVegjmwOSO
+    properties :
+     x : 252
+     y : 312
+     width : 131
+     height : 24
+    type : 4
+    code_elements :
+     type_code : 4
+     p_codes :
+      -
+        code : |1-
+         // Is there a selected skin template?
+         if LSV_ListSkinTemplate<=0 then return
+         
+         // Extract the skin template
+         sSkintemplate is string = SkinTemplates.ExtractSkinTemplate(CompleteDir(fExeDir())+csNameSkinTemplateDirectory+"\"+LSV_ListSkinTemplate[LSV_ListSkinTemplate]+".zip")
+         
+         // Check the selection
+         if sSkintemplate="" then return
+         
+         // Store the skin template
+         SaveParameter(csNameParameterSkinTemplate,sSkintemplate)
+         
+         // Update the skin template
+         ChangeSkinTemplate("",LoadParameter(csNameParameterSkinTemplate,""))
+         
+         // Indicate that the calling window must be refreshed
+         MyWindow..ReturnedValue = True
+         
+         // Close the window
+         Close
+        type : 18
+      -
+        type : 161
+        enabled : false
+  -
+    name : BTN_Restore_the_default_skin_template
+    identifier : 0x2a55eab2072f31ff
+    internal_properties : CAAAAAgAAADOJMlvs/g/tlPfVf5JQOfSEywupSZa4AhdzZznKB/Uv5OWFgBEWRpG6aiUd9Ez/LElkQcbXn2GRWdsE2Y66Nmbi2eCEid6bWeSThXL4HrsNXCsyFbBC+JTPJzNHWrChm4cvVYPbi4ojrM4bKd96Uhsxg5naEzFUdIU+TYMkLu8PR/lL4JgmWjBrDxS4bkx6bmaVctyvsUCkKVWjo/GY2UPks9PdUMx31vrMhWwWYSG9RiMb4Wll7zUhcbf4ja4H5mM80UXrMMBtR58cka1h86r3W/5cDJ4vY9QmdqMfiLYq8uISb6kPtrj2o7kGYWT/sAjS2axIOXQ5XLT2I+5SA5BmojCbhH0Jz99pCuctKXPZ7JzRO0Y290pwtVVcAv94QiugFFLNCsnGqST9NqIFmnN1vfRn4Fc70KzEX/ekwYwNL/yz7dhN90nuYdTmSGECqGb9xOMKcWIxhSsWFeG6N+zqYlqa1Ozn1Gwli2ElnvPYTv0TdA8c8EaVQ0wuYn5v1xEOETQYnCccrgzChCi6uBZY5e6e6Ov9jUS2MIoHlep2DG/QrRKts4NsYiZd9iMPKyl4+MVgtT63c2JQ9DNgRG0ZDs5WfxbFSQFqFTirDliGoF197mH68uSdxUDBxDZyiHMGvJjbV05PGzRiYugjSEu/8y4Or3k8vgiGUshpy4eY+KUTFAR3Vk7pcPQe2HyrBUjgMyzOVu1JC5EMa410cP6PdjG7lJIWi/xYADkeSjiV/oZJL5Tb5B6nXSKbXZ7noeFg2M7/FLUbEM3SBTVNGHfNw62BO33XpHnL91dxF4atqja3VSEN/Fo22zu8vX6eO2oPI3fhJrgwm4XX0R8M2pVLn3rA54qI4xwSuNxXNK9rgcnjq6ezDchjVzMRqxs+q5mEa17SUNyCKgkEywWxGdM3RhedZ5h2OUI0WNjNkOwvHIhypvTa8MLZ4VwoXkYWjsSTYisU7LnJg==
+    properties :
+     x : 6
+     y : 312
+     width : 240
+     height : 25
+    type : 4
+    code_elements :
+     type_code : 4
+     p_codes :
+      -
+        code : |1-
+         // No stored skin template
+         SaveParameter(csNameParameterSkinTemplate,"")
+         
+         // Disable the maximum number of style changes
+         ChangeSkinTemplate("","")
+         Info(<§$0000§>)
+         
+         // Close the window
+         Close
+        type : 18
+      -
+        type : 161
+        enabled : false
+  -
+    name : LSV_ListSkinTemplate
+    identifier : 0x2a55eab2073031ff
+    internal_properties : CAAAAAgAAACXc4u6gZbN2cc3xls5dsPh63r5MZ9G5fzjYgKnjVxtfP0OeifP8KLImECEdj2XP8vpPlz7NUaTBI5XtF3eKLzBC+6VQpIEmiXwfKwhQjrbkBwYZjM+9poL517KJx/sp3z1e1nmBWk7QVmF2sTUnRw835e0XtjQCUkj1eqEGW1rwi4ofWaLZbQO1JtiqaAfQoovObdML2XM+xfuRexda/18KMu7n673Lv/9lYfBGOdMUHN7LnzoWCKqfPeyvc5ALDAdWAz1gO2r7YACjUGEu+OdTYqP/XEaymGemf3tfYwd2X65Mt4tENhxl6GNkvGfY+rgemG7xIGp7F+jXDEz0UqQ+9SsXG+Bmmj5PcG8Z+itEPh9EJuP8frjGf4UA0uzoRj7Pig7Lf9cv5NUYj6eTJ048oOcUbF1/hbv+zzSlCgMUCseH0WhKDxeo/QLY3Rkxjl6gEymm/5iUHQfKLp5lFdS9LFF31kmXXj6gJNIxJYLOmTWzcJAXkA+3JaTxldN7PxsngwaJ/h0IZMKzgpEklA46dtqPY1P1fNfZQCS4uGqjJsHGoNuTcFjI4C60LNoscFiQ2kqSkX0I/e92/mqlKHooHf3mxKVYxY4L9EhEr8OALjQYGBM4nh1pWoxdOWO7DeGd6X1ziGHeXJ3Zmbob+m2R4TCmrNQ+GYik3RE96H90NIVjm82E164+bVrDfTIOVaRcXPCuzItE/uFtvPpZBGX8jHVSVSb38cb+uWEkapbG+Eaf4x38v6FSXgWPRWMSRsZRn+XQ0PwWsEhZ330zs+V7ntlf3MpMpKrjsQRtbqPZKBUX3eZBTIDptfVa2lf0M7vN4ZocV0g6VhHJeodLl+gE6Ki/YDpCWYy8YT/bSgPrJaM7XhzWDoQ2tDo5AbyoacrcK0CKV/Bw/5/bryzlW7hQEgQHOKm/KgVXuTj/y/qY69DZiwSIiOJyhvoEdPLztX63aAXXeu1rPUPM9GjnJSK18bCWkWVjAHo7GeG4D+YwZQRXHWRCOiiyOS2VIlxS/vk25ZNvOZOTXn8UkXgS5mNGdpYuLhfkeBZQb7eVYXDLVADhqUUNZyJaXQF/T+zf2xO8tr7Zy+rlhbAi6QOCAB4VVL5H+FIhtqtVWi1cM+ZJh7xo8GOrLLKYBACi44IJl1OZN+Ob5b7wuuLjuQouIRDCJMhNLt/Rc+fZ8GeXInZdwe572xfCVdJ8x6DShQhR4B9BP/JrYU/UjOBdGGsp+c7xyhU6e/vwciSRAoLc7ZLWojBaxlA8uaQdaf3cMzKRCS4OyaJLCEkE7iKRJF3Hs5ardoD3YgXnPdfBPwKXRj5LL5Q7DEMZm8OGl9V108eC8kVBg8MZifCq+giBeBac+Cjq1yjD0Uf9ybRJ/MtyQ8PtN3qyf0xFXanXpcxemvzsd2QPqLhRdUIBwL/eBSkw3t0xWLrEjY7JoV7RQhVnyw69FxLl465m/fTYZFGODFPumr5eBXCB3dpQSXt
+    properties :
+     x : 6
+     y : 33
+     width : 524
+     height : 273
+    type : 27
+    code_elements :
+     type_code : 59
+     p_codes :
+      -
+        type : 35
+        enabled : false
+      -
+        type : 22
+        enabled : false
+      -
+        type : 24
+        enabled : false
+      -
+        type : 23
+        enabled : false
+      -
+        type : 25
+        enabled : false
+  -
+    name : BTN_Cancel
+    identifier : 0x2a55eab2073131ff
+    internal_properties : CAAAAAgAAABCbs1nJiekVpubbGDZVW9f2V63S1ygRGTE0KV2GEpfczFeAZ2GC1U9YWm+1bv5lL85vC5k6K942e54wzdxWadbz0hI2fw2lvHMN2uM0vCtZuwQNWBdApLbGnFhJ4arMy+lAefi1BgXPwhjQhq3wp9UW69Wwb5iShP3dEYw5eFQnFebZkm0qWETmLfWj7fkrc8qp/5kHIVJmiiCM4dRKJwx1yeAhxFesc2VazqZe9kagQN7AF5o8XtEH0lEVP4oEQL6QdS3/c/ksfo2sHWvqyBnXq97GzMb6VBAOitKiff7jaOE6C2VMBhZEV2r9UnAjXu/+Yo879wmHwqzRZ7SV4KfFCIE9rScOiI8FID2jVPFckw1D/TPYJNyDthFeAu/NaNRPrfdbsAmKi0vQGuf1LA74bNvqRXjv4RiVYGM3rJpL+y5nyaNEARd93jMflKq+DltlF25h7OsGPCPNPkKumVgRGm84oGTswPq4sl1zB+JZ2rDS4XEyEQkBKfvpk7MXpokHhRNwI6VCwVQTjd/AyaaZ1RYHk0iz9FS5dVHWMDRWhVmnvE9Iwj2uSzFoo80RLRHOsM7tns1aIHdfKAERbxAVGwTgtni4OdDvU0OIpHaBm/Hw/BV+r4TfSX4QhXCRB9IKEChr9bN3hPgWWH+K4jj00xwThfmfAJPAf/SF4BEqj1pjMZ9oVcbqF/R6SfGQPRNF4InwYTPd2NTkT+XXM1SC3cMoPEMOGDMq5bvt8KPcAJu7eGZGCio3zEkm0V2AM5N8uT8TS+N1JudO+ogRvW5EjxqT9mbTa7FBDkPNIQtFsthvwQZEoAzbXaVwgxeDmP/FxMg+hgJAb2nbnWOFzUE+r6lWgrbZxNuz+ztzudy+57Ilv13CfZs5F9JSwuVjtZPkKw+l4AR6ufDtAWLXmxuTGyTkpFn9Ey9/i2khjlIUE0VPEVKZBorKgBEEe6W5PaO60Wo6Ta86CD+z5psv4V+A/3R0QeZfhhwgorqE7YUHnl2Gtld
+    properties :
+     x : 389
+     y : 312
+     width : 142
+     height : 24
+    type : 4
+    code_elements :
+     type_code : 4
+     p_codes :
+      -
+        internal_properties : CAAAAAgAAADQZyvpRjJZltgKBVFD+SKMukTEU1n2G2jmPSjnx1ZKdSF2vB36egNKcReVrz/xwpIZdIpZoyUu0CjPxu+MpGLAedmE/39iAmJIcu72BpKoWkpseLXy2lnJGPSMFw==
+        type : 18
+      -
+        type : 161
+        enabled : false
+  -
+    name : STC_Static1
+    identifier : 0x2a55eab2073231ff
+    internal_properties : CAAAAAgAAACk2f+72Fk8wC3zxel/AG+UJTz7RRoVkP9DJ9fU9CFlvCAjEUBc3wyc672Pac+xzSfI+DakmtNUExUrBbxJ1ETSroQZTBeyVridHNOLdoRQmh1qjK9wRcE1ecPDPr7ZmMFNhuoV9Z9qonHL8YOHr9kssja1HXZkCuZa9Xg+ODuzWaOybaj5IvQK/0A9G9opu8xQQymVlU2WvdCuzkpown0V9lGmu4stXC8rSKpNciSiLVB8jvbB2OI8waS7bJNEA8czvS/WTBMWB8s/YMAlFCrWXiIUR78RKCXCJjOSHmHBdBTPrFjS772J55xCTL6DqR/kojyql5WWB/bMe7uhqQdihc2jjsvdPoX65h6hl8veakOvmIvqR7zzkOFNaQ7TKfYHuhTRxCu0I1PwPy2SxyM/QmoAmXQ3RQzws2DVhBNFQ2hWG0uSj7WP5sNqoMzKnspe4li2v8ArebFUgJv5WWNgTbr2XkTFZPvDDfCSwIfAa7SjcISrtDE31/XR/xcIhAWHxtxvqwxyxjQu5kA4mRZsAbwMK+Va7r7rNJFrO1Tevm/0zVaTOA==
+    properties :
+     x : 6
+     y : 6
+     width : 525
+     height : 20
+    type : 3
+    code_elements :
+     type_code : 2
+     p_codes : []
+ menu :
+  name : _Menu
+  identifier : 0x2a1fb82424a1369f
+  internal_properties : CAAAAAgAAACCv199ARoPUfG3WAPSG9eefhOOjWMQrs8CrX6cGGGJPoSHWBq4PXhStOWc1YnAZMZ5+EFR1WTDn8CTOTiyLnXPpAR5X8rsRkPZrm1yZeYDDt4kRzDPLbUf4Sh/mD3kd1D8V2drCFLmjeQhgpw7GKGwHRga+ZdjSqXGIC3LD1RracZ230hOmUJTj+ABDW4IHrw4PflmVGgp8E9KnAf/gselRrzEY90l3Cr9N00QijFYYrbrl4qF4kdim1YX6jYT4ezQhbJsU84ENZsxzq+o0JVHYQ8rxck600VhGV04/ao=
+  options : []
+ languages :
+  - en-GB
+ popup_menus : []
+ message_bar :
+  internal_properties : CAAAAAgAAAAjFWXItEk/EPvcbGR+hALkgRfdOpVtIn+yZNxHnmSRFJegE/AnD2HbGAaMfhGCqfzkryHG9FVhjtF+iQYkZ59QBQ88Okhh0vjCoVhOagox2hvIqrJnU30QK15/ZA==
+ actionbar : {}
+ code_elements :
+  internal_properties : CAAAAAgAAADgZysRVU1Ggtyn89tIHoI98KSNzp7JR922eKuFi375i2/1s7XSyytQU3AEfO3uCbMye0hi6guFYMJQyP/vx0CdlgTrmA==
+  type_code : 1
+  p_codes :
+   -
+     code : |1+
+      Procédure WIN_ChooseSkinTemplate()
+      
+      local
+      	sListSkinTemplate 	is string
+      	sSkintemplate		is string
+      	nFileSubscript	is int
+      	bufImage		is buffer
+      	sThumbnailName	is string
+      	SkinTemplateArchive	is a zipArchive
+      	
+      // No returned value
+      MyWindow..ReturnedValue = False
+      
+      // If the skin templates are stored as archives
+      sListSkinTemplate = fListFile(CompleteDir(fExeDir())+csNameSkinTemplateDirectory+["\"]+"*.zip")
+      
+      // Browse the skin templates
+      for each string sSkintemplate of sListSkinTemplate SEPARATED BY CR
+      	// No duplicate file and no SCM cache (in local test)
+      	if ListSeek(LSV_ListSkinTemplate,fExtractPath(sSkintemplate,fFileName),True)>0 then continue
+      	if Position(fExtractPath(sSkintemplate,fFileName),"cache.management of sources")>0 then continue
+      	
+      	// Open the archive in memory
+      	if zipOpen(SkinTemplateArchive,sSkintemplate,zipRead) = 0 then
+      	
+      		// Is there a custom thumbnail?
+      		nFileSubscript = zipFindFile(SkinTemplateArchive,fExtractPath(sSkintemplate,fFileName)+"\"+"WIN_SkinTemplateExample.png")
+      		if nFileSubscript > 0 then
+      			// The file was found
+      			bufImage = zipExtractFile(SkinTemplateArchive,nFileSubscript,zipInMemory)
+      		else
+      			// Search for the default thumbnail
+      			sThumbnailName = fExtractPath(sSkintemplate,fFileName)+"_Logo.gif"
+      			nFileSubscript = zipFindFile(SkinTemplateArchive,fExtractPath(sSkintemplate,fFileName)+"\"+sThumbnailName)
+      			// Is there a thumbnail?
+      			if nFileSubscript > 0 then
+      				bufImage = zipExtractFile(SkinTemplateArchive,nFileSubscript,zipInMemory)			
+      			end
+      			
+      		end
+      		zipClose(SkinTemplateArchive)
+      		
+      		// Add the skin template
+      		if bufImage<>"" then
+      			if fDirectoryExist(SkinTemplates.gsDirDynamicSkinTemplates) = False then
+      				fMakeDir(SkinTemplates.gsDirDynamicSkinTemplates)
+      			end
+      			fSaveText(SkinTemplates.gsDirDynamicSkinTemplates+["\"]+fExtractPath(sSkintemplate,fFileName)+"_preview_skintemplate.jpg",bufImage)
+      			ListAdd(LSV_ListSkinTemplate,fExtractPath(sSkintemplate,fFileName),SkinTemplates.gsDirDynamicSkinTemplates+["\"]+fExtractPath(sSkintemplate,fFileName)+"_preview_skintemplate.jpg")
+      		else
+      			ListAdd(LSV_ListSkinTemplate,fExtractPath(sSkintemplate,fFileName))
+      		end
+      		
+      	end	
+      	
+      end
+      
+   -
+     code : |1+
+      
+      
+     type : 34
+   -
+     type : 180
+     enabled : false
+   -
+     type : 230
+     enabled : false
+   -
+     code : |1+
+      
+      
+     type : 2
+   -
+     code : |1+
+      
+      
+     type : 11
+   -
+     code : |1+
+      
+      
+     type : 12
+   -
+     code : |1+
+      
+      
+     type : 17
+   -
+     code : |1+
+      
+      
+     type : 13
+ code_parameters :
+  internal_properties : CAAAAAgAAAByQ7wCHdhL/KEDB9nf6oMGU/FzbypMGVHyBwPiCaq1weNEGGa1mqAXY23NuLI5f1p5mElYRc1+fWpLKZLN8dH/P6LwhlLHuqcSPNh+lK+Q5Am6X8AIw1Z7UkN01jKmUQIxgdpXJZTVcg6bd0LYTiYQoJwDwTU=
+  original_name : Modele1
+resources :
+ string_res :
+  identifier : 0x1a1fb81900620b89
+  internal_properties : CAAAAAgAAAC+kI6hfe3TqlvmKMQqCeuNIxYbGmt4XIvQml2glDjnCK7pnudB/cN3kmoNoQU=
+  strings :
+   -
+     text :
+      en-GB : "The default skin template will be fully restored the next time the application is run "
+     index : 0
+custom_note :
+ internal_properties : CAAAAAgAAAC68/W0/adbG0nFCRhrE42B5HRnbDzVHaz86sSQyxlBk7I=
+rad :
+ internal_properties : CAAAAAgAAABoAN7PLpwJW3EiA7WVZdCA5EwrCA1rvutcDHooMWKe

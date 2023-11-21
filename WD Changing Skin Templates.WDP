@@ -1,0 +1,140 @@
+#To edit and compare internal_properties, use WINDEV integrated tools.
+#Internal properties refer to the properties of controls in windows, reports, etc.
+info :
+ name : WD Changing Skin Templates
+ major_version : 28
+ minor_version : 0
+ type : 4097
+ description : The purpose of the project is ...
+ subtype : 0
+project :
+ identifier : 0x0
+ internal_properties : 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
+ configurations :
+  -
+    name : WD Changing Skin Templates
+    internal_properties : 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
+    configuration_id : 8346979703115400910
+    type : 1
+    generation_name : WD Changing Skin Templates.exe
+    version :
+     major_version : 23
+     minor_version : 29
+     autoincrement_version : false
+    icon_filename : .\VST12443a.ico
+    language : 2
+    new_features_help :
+     name : ""
+     internal_properties : CAAAAAgAAACqotIeo3ap3nKnrXGMtEPkdNKlTfx7OaJ+UjEckhr5BeJ/oIrARNWzKkbvyOweAlE8jGYV/6ito5W/
+ elements :
+  identifier : 0x4cea9bfa00192840
+  elements :
+   -
+     name : WIN_ChooseSkinTemplate
+     identifier : 0x4a1fb82600003e2d
+     internal_properties : CAAAAAgAAADVsT1hXjtzrLs6WE18Pi6au/ryKq0GP7CiZkt1WqBqTo52uKJ+utxVBD64AIBwCPjAQA==
+     physical_name : .\WIN_ChooseSkinTemplate.wdw
+     type : 2
+   -
+     name : RPT_ContactList
+     identifier : 0x4a55eaac00861956
+     internal_properties : CAAAAAgAAADsasTQ75ScTx7FEhzbzND3uumxmTQNS7BWDS6/7izoICgqKHEExKhCa9/ZJ+/hmQ/5eQ==
+     physical_name : .\RPT_ContactList.wde
+     type : 3
+   -
+     name : WinDevMessageBox
+     identifier : 0x49760c0b01ef1925
+     internal_properties : CAAAAAgAAAAwqcNSuymgAKFfdykTjT1I7Vhzaz2qj6u8SPP0YSNv5KLHBW2XDYHkx88MLUm9xw==
+     physical_name : .\WinDevMessageBox.WDW
+     type : 2
+   -
+     name : SkinTemplates
+     identifier : 0x4a1bc9500000afad
+     internal_properties : CAAAAAgAAABHMX0p6tfdVgVbSB3f6rX6njyGat5KUxkjk+k47TkyUVAq3LGkbfMxMnR1Ai3NalHC
+     physical_name : .\SkinTemplates.wdg
+     type : 7
+   -
+     name : WIN_Main
+     identifier : 0x4a1bca1f0001da36
+     internal_properties : CAAAAAgAAACHg+8z8K0FJjH0Dpc2C6jAQR7kdDFWOH5KJDtWwUlV493XH1vMdJKLTsgyjhbKtiqSkg==
+     physical_name : .\WIN_Main.wdw
+     type : 2
+   -
+     name : COL_GlobalProcedures
+     identifier : 0x426f853900ce3c3e
+     internal_properties : CAAAAAgAAAA6EGKmBULq9fKB28DHD697HLnbgzRdHZdKKCVYmXmTlbtH5XW7RWHYm4V/eTm3Q7UfJw==
+     physical_name : .\COL_GlobalProcedures.wdg
+     type : 7
+   -
+     name : TEST_SET_GlobalProcedures
+     identifier : 0x426f854000d056cf
+     internal_properties : CAAAAAgAAACIhvCsG0Do8/yP3cbFBrERpvWdRYgB0eOiZv6H5jxQ0HDyAmi1Q2PamYN9ezu1TUONlQ==
+     physical_name : .\TEST_SET_GlobalProcedures.wxt
+     type : 17
+   -
+     name : WinDevDialogBox
+     identifier : 0x49760c0b01f71a1e
+     internal_properties : CAAAAAgAAACkPVeGx6U8nCULU0XXeUlECbSRD+o+z+YzlYFuJV/7EN7rYTGjmQ1wU1uYWb0pUw==
+     physical_name : .\WinDevDialogBox.WDW
+     type : 2
+  other_elements :
+   -
+     physical_name : .\description.gif
+  analysis : .\WD Changing Skin Templates.ana\WD Changing Skin Templates.wda
+  net_assemblies : []
+  uwp_api : []
+  external_components : []
+  internal_components : []
+ report_and_queries_enabled : false
+ common_generation_directory : true
+ languages :
+  - en-GB
+ code_elements :
+  internal_properties : CAAAAAgAAABseimUYz4VdXZ8hGsGFqoxLDfDcHkNZdBf0iQg2FQcqmw5VrO2lryVMt3efm9RagPlXJBReauIsX3ZdB8=
+  type_code : 0
+  p_codes :
+   -
+     internal_properties : CAAAAAgAAAANK99aT578pqrY5vHKk6We4QlF1n4phI60i5kiJ2ajIXqY8ANw+K+Ev0qF5XyF7/X5nkR47wx/A9HQAdXUtV09qS9IbkPPF7nTWSaUTtcQidvXNTL45w==
+     code : |1-
+      constant
+      	csNameSkinTemplateDirectory = "SkinTemplates"
+      	csNameParameterSkinTemplate	= "SKINTEMPLATE_DYNAMIC"
+      end
+      
+      // Do we have to apply a skin template dynamically?
+      if LoadParameter(csNameParameterSkinTemplate,"")<>"" then
+      	ChangeSkinTemplate("",LoadParameter(csNameParameterSkinTemplate,""))
+      end
+      
+      case exception:
+      	Error(<§@00000000000000000000§>,ExceptionInfo())
+     type : 196608
+   -
+     type : 196621
+   -
+     type : 196627
+     enabled : false
+  orphans :
+   -
+     name : WD Changing Skin Templates
+     identifier : 0x4cea9bfa002228bd
+     code_elements :
+      type_code : 159
+      p_codes : []
+ code_parameters :
+  internal_properties : CAAAAAgAAACVGQgYbalU7DKC3oH4ItDrjtcTHXXV/EuH8q0IbhyQlw==
+rad :
+ internal_properties : CAAAAAgAAABhIL0UXeZmxDJxY3Xy0Q==
+project_explorer :
+ explorer_type : project
+resources :
+ string_res :
+  identifier : 0x0
+  internal_properties : CAAAAAgAAACm76HWfKGWp33VjXInA4cRlqArlgTTA862QGt72W2ld5Y=
+  strings :
+   -
+     text :
+      en-GB : We apologize for this error
+     index : 0
+custom_note :
+ internal_properties : CAAAAAgAAAAd98VSJfHHqE3P0QHwrwdhn7ig8dWBR6valpUTgnAMTVXiDg==
